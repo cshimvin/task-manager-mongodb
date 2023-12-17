@@ -34,7 +34,7 @@ def login():
         if existing_user:
             # ensure hashed password matches input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("profile", username=session["user"]))
@@ -61,7 +61,7 @@ def register():
 
         # check if passwords match
         if request.form.get("password") != request.form.get(
-            "confirm_password"):
+                "confirm_password"):
             flash("Passwords do not match")
             return redirect(url_for("register"))
 
