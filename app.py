@@ -25,6 +25,11 @@ def get_tasks():
     return render_template("tasks.html", tasks=tasks)
 
 
+@app.route("/log-in", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -53,11 +58,6 @@ def register():
         flash("Success!")
         return redirect(url_for("register"))
     return render_template("register.html")
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    return render_template("login.html")
 
 
 if __name__ == "__main__":
