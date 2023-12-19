@@ -25,6 +25,11 @@ def get_tasks():
     return render_template("tasks.html", tasks=tasks)
 
 
+@app.route("/add_task", methods=["GET", "POST"])
+def add_task():
+    return render_template("add_task.html")
+
+
 @app.route("/log-in", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
