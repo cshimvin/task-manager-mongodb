@@ -4,7 +4,21 @@
     <h3 class="light-blue-text text-darken-4 center-align">Add Task</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('add_task') }}">
+            <!-- Category select box -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Category</label>
+                </div>
+            </div>
+            <!-- Task name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
@@ -12,6 +26,7 @@
                     <label for="task_name">Task Name</label>
                 </div>
             </div>
+            <!-- Task description -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
@@ -19,6 +34,7 @@
                     <label for="task_description">Task Description</label>
                 </div>
             </div>
+            <!-- Is urgent switch -->
             <div class="row">
                 <div class="input-field col s12">
                     <div class="switch">
@@ -31,23 +47,20 @@
                     </div>
                 </div>
             </div>
+            <!-- Due date picker -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-calendar prefix light-blue-text text-darken-4"></i>
                     <label for="due_date">Due Date</label>
                     <input type="text" name="due_date" id="due_date" class="datepicker">
                 </div>
             </div>
+            <!-- Submit task -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar prefix light-blue-text text-darken-4"></i>
-                    <label for="category">Category</label>
-                    <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
-                        {% for category in categories %}
-                        <option value="{{ category.category_name}}">{{ category.category_name}}</option>
-                        {% endfor %}
-                    </select>
+                    <button class="btn-large light-blue darken-1 text-shadow" type="submit" name="action">
+                        Add Task <i class="fas fa-plus-square right"></i>
+                    </button>
                 </div>
             </div>
         </form>
