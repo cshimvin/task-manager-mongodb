@@ -33,19 +33,21 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
                     <label for="due_date">Due Date</label>
                     <input type="text" name="due_date" id="due_date" class="datepicker">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="category">Select Category</label>
-                    <select id="category" name="category">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                    <i class="fas fa-calendar prefix light-blue-text text-darken-4"></i>
+                    <label for="category">Category</label>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
         </form>

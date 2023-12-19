@@ -27,7 +27,8 @@ def get_tasks():
 
 @app.route("/add_task", methods=["GET", "POST"])
 def add_task():
-    return render_template("add_task.html")
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("add_task.html", categories=categories)
 
 
 @app.route("/log-in", methods=["GET", "POST"])
