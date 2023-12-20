@@ -3,6 +3,7 @@
 */
 
 $(document).ready(function () {
+    $('.modal').modal(); // modal overlay
     $(".sidenav").sidenav({edge: "right"}); // Side nav
     $('.collapsible').collapsible(); // accordion
     $('.tooltipped').tooltip(); // tool tip
