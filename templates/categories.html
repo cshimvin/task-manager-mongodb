@@ -4,6 +4,11 @@
 
 <h3 class="center-align light-blue-text text-darken-4">Manage Categories</h3>
 
+<div class="col s12 center-align">
+    <a href="{{ url_for('add_category') }}" class="btn-large light-blue text-shadow darken-2">
+        Add Category <i class="fas fa-plus-square right"></i>
+    </a>
+</div>
     <div class="row">
         {% for category in categories %}
             <div class="col s12 m3">
